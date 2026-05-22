@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinPay Titanium | PDV Industrial</title>
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#010208">
+
+    <style>
+        :root { --bg-main: #010208; --primary: #00ff88; }
+        body { margin: 0; background: var(--bg-main); color: white; font-family: sans-serif; overflow: hidden; }
+        .app-container { width: 100vw; height: 100vh; display: flex; flex-direction: column; }
+    </style>
+</head>
+<body>
+
+    <div class="app-container" id="app">
+        </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('ServiceWorker registrado com sucesso'))
+                    .catch(err => console.log('Erro no ServiceWorker: ', err));
+            });
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js"></script>
+    </body>
+</html>
